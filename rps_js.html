@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * Computer randomly selects 1 of 3 rock paper or scissors.
+         * Computer prompts whether the user chooses rock paper or scissors
+         * user inputs choice
+         * computer compare it's choice versus yours and alerts whether or not you won or lost
+         */
+
+        function getComputerChoice() {
+  let getRandomNumber = Math.floor(Math.random() * 3)
+  switch (getRandomNumber) {
+    case 0:
+      return 'rock'
+      break
+    case 1:
+      return 'paper'
+      break
+    case 2:
+      return 'scissors'
+      
+  }
+}
+
+
+function playRound() {
+  let playerSelection = prompt('Rock, Paper, or Scissors?: ');
+  let computerSelection = getComputerChoice();
+  playerSelection = playerSelection.toLowerCase()
+  if (playerSelection === computerSelection) {
+            return 'You Tied!';    
+            } else if ((computerSelection === 'rock' && playerSelection === 'scissors')
+                       || (computerSelection === 'paper' && playerSelection ==='rock')
+                       || (computerSelection === 'scissors' && playerSelection === 'paper')) {
+            return 'You Lost!';
+            } else {
+                return 'You Won!';
+            }
+        }
+     
+function game() {
+    let computerScore = 0;
+    let playerScore = 0;
+    for (let i=0; i < 5; i++) {
+        let result = playRound()
+        if (result === 'You Tied!') {
+            computerScore += 0;
+            playerScore += 0;
+        } else if (result === 'You Lost!') {
+            computerScore += 1;
+            playerScore += 0;
+        } else {
+            computerScore += 0;
+            playerScore += 1;
+        }
+    }
+    if (computerScore > playerScore) {
+        return 'Computer has won the game!';
+    } else if (playerScore > computerScore) {
+        return 'Player has won the game!';
+    } else {
+        return 'You Tied! That\'s Cray Cray!';
+    }
+}  
+console.log(game());
+    </script>
+</body>
+</html>
