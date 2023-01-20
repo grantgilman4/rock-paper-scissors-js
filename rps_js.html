@@ -8,13 +8,8 @@
 </head>
 <body>
     <script>
-        /**
-         * Computer randomly selects 1 of 3 rock paper or scissors.
-         * Computer prompts whether the user chooses rock paper or scissors
-         * user inputs choice
-         * computer compare it's choice versus yours and alerts whether or not you won or lost
-         */
 
+//Switch Statement to randomly generate Computer's Choice
         function getComputerChoice() {
   let getRandomNumber = Math.floor(Math.random() * 3)
   switch (getRandomNumber) {
@@ -30,7 +25,7 @@
   }
 }
 
-
+//Prompts user for choice, determines winner between player and computer with if statement
 function playRound() {
   let playerSelection = prompt('Rock, Paper, or Scissors?: ');
   let computerSelection = getComputerChoice();
@@ -45,7 +40,9 @@ function playRound() {
                 return 'You Won!';
             }
         }
-     
+/**For Loop to playRound five times and store playRound() results in corresponding score variables.
+ At the end of Loop, console evaluates the score and returns the winner of the game()*/ 
+
 function game() {
     let computerScore = 0;
     let playerScore = 0;
