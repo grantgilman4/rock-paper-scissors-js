@@ -4,70 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="rps.js" defer></script>
+    <link rel="stylesheet" href="style.css"/> 
+    <title>Rock Paper Scissors Game</title>
 </head>
 <body>
-    <script>
-
-//Switch Statement to randomly generate Computer's Choice
-        function getComputerChoice() {
-  let getRandomNumber = Math.floor(Math.random() * 3)
-  switch (getRandomNumber) {
-    case 0:
-      return 'rock'
-      break
-    case 1:
-      return 'paper'
-      break
-    case 2:
-      return 'scissors'
-      
-  }
-}
-
-//Prompts user for choice, determines winner between player and computer with if statement
-function playRound() {
-  let playerSelection = prompt('Rock, Paper, or Scissors?: ');
-  let computerSelection = getComputerChoice();
-  playerSelection = playerSelection.toLowerCase()
-  if (playerSelection === computerSelection) {
-            return 'You Tied!';    
-            } else if ((computerSelection === 'rock' && playerSelection === 'scissors')
-                       || (computerSelection === 'paper' && playerSelection ==='rock')
-                       || (computerSelection === 'scissors' && playerSelection === 'paper')) {
-            return 'You Lost!';
-            } else {
-                return 'You Won!';
-            }
-        }
-/**For Loop to playRound five times and store playRound() results in corresponding score variables.
- At the end of Loop, console evaluates the score and returns the winner of the game()*/ 
-
-function game() {
-    let computerScore = 0;
-    let playerScore = 0;
-    for (let i=0; i < 5; i++) {
-        let result = playRound()
-        if (result === 'You Tied!') {
-            computerScore += 0;
-            playerScore += 0;
-        } else if (result === 'You Lost!') {
-            computerScore += 1;
-            playerScore += 0;
-        } else {
-            computerScore += 0;
-            playerScore += 1;
-        }
-    }
-    if (computerScore > playerScore) {
-        return 'Computer has won the game!';
-    } else if (playerScore > computerScore) {
-        return 'Player has won the game!';
-    } else {
-        return 'You Tied! That\'s Cray Cray!';
-    }
-}  
-console.log(game());
-    </script>
+    <h1>Rock Paper Scissors</h1>
+    <p>Best of Five...Can <strong>YOU</strong> survive?</p>
+    <div id="buttons">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
 </body>
 </html>
